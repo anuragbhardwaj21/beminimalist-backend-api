@@ -1,4 +1,4 @@
-# Minimalist E-commerce API Endpoints 
+# BeMinimalist E-commerce API Endpoints 
 
 `Base URL` - https://beminimalist.onrender.com
 ### Authentication
