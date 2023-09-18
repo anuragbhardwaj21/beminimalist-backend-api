@@ -2,8 +2,8 @@
 
 `Base URL: https://beminimalist.onrender.com`
 ### Authentication
-> * `POST https://beminimalist.onrender.com/signup`
-> * `POST https://beminimalist.onrender.com/login`
+> `POST - https://beminimalist.onrender.com/signup`
+> `POST - https://beminimalist.onrender.com/login`
 ### Products
 > * GET https://beminimalist.onrender.com/products
 > * GET https://beminimalist.onrender.com/products/skin
