@@ -276,11 +276,11 @@
       "desc": "A lightweight sunscreen stick that leaves absolutely 0 white cast & no oily feel on application. It’s a photostable sunscreen that is formulated with very effective, new age UV filters to provide protection from UVA & UVB rays. Also contains potent antioxidants that protect & heal skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 20g",
       "price": 799,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Stickmailimage-min_2048x.png?v=1674808943",
-        "https://beminimalist.co/cdn/shop/products/Stickadimage-min_2048x.png?v=1682340542",
-        "https://beminimalist.co/cdn/shop/products/Stickmodelimage-min_1296x.png?v=1682340542"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Stickmailimage-min_2048x.png?v=1674808943",
+        "2": "https://beminimalist.co/cdn/shop/products/Stickadimage-min_2048x.png?v=1682340542",
+        "3": "https://beminimalist.co/cdn/shop/products/Stickmodelimage-min_1296x.png?v=1682340542"
+      }
     },
     {
       "id": 23,
@@ -289,11 +289,11 @@
       "desc": "A rejuvenating, collagen boosting serum boosted with peptides that restore youthfulness, resulting in younger, firmer-looking skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 695,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/MultipeptideSerum1200-2-min_1296x.png?v=1646591527",
-        "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--1min-1646580869125_2048x.webp?v=1651558375",
-        "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--3min-1646580869171_1296x.webp?v=1651558376"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/MultipeptideSerum1200-2-min_1296x.png?v=1646591527",
+        "2": "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--1min-1646580869125_2048x.webp?v=1651558375",
+        "3": "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--3min-1646580869171_1296x.webp?v=1651558376"
+      }
     },
     {
       "id": 24,
@@ -302,11 +302,11 @@
       "desc": "A skin-regenerating daily serum with 10% blend of AHAs (Alpha Hydroxy Acids) and BHAs (Beta Hydroxy Acids) that mildly exfoliates without drying the skin to reveal clear, radiant, and hydrated skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 589,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--1min-1645781661616_1296x.png?v=1647004182",
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--2min-1646036604164_2048x.webp?v=1651495095",
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--3min-1646036604229_1296x.webp?v=1651495095"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--1min-1645781661616_1296x.png?v=1647004182",
+        "2": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--2min-1646036604164_2048x.webp?v=1651495095",
+        "3": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--3min-1646036604229_1296x.webp?v=1651495095"
+      }
     },
     {
       "id": 25,
@@ -315,11 +315,11 @@
       "desc": "A highly effective lip balm formulation with a combination of biologically active form of Vitamin C, L-Ascorbic Acid along with Radianskin that helps in preventing and reducing hyperpigmentation. Vitamin E and Glycerin hydrate and soften lips.",
       "additionalDesc": "Fragrance free • Parabens free • 12g",
       "price": 399,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Untitled_1_2048x.png?v=1666271810",
-        "https://beminimalist.co/cdn/shop/products/32-min_2048x.png?v=1681982472",
-        "https://beminimalist.co/cdn/shop/products/31-min_1296x.png?v=1681982472"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Untitled_1_2048x.png?v=1666271810",
+        "2": "https://beminimalist.co/cdn/shop/products/32-min_2048x.png?v=1681982472",
+        "3": "https://beminimalist.co/cdn/shop/products/31-min_1296x.png?v=1681982472"
+      }
     },
     {
       "id": 26,
@@ -328,11 +328,11 @@
       "desc": "An emollient balm formula with new-age, photostable UV filters to provide your lips all day protection from sun. Contains Ceramide & Hyaluronic Acid to hydrate and repair lips.",
       "additionalDesc": "Fragrance free • 8g",
       "price": 299,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/MinimalistLIPBalmSPF30-min_1_2048x.png?v=1665726557",
-        "https://beminimalist.co/cdn/shop/products/35-min_2048x.png?v=1681986119",
-        "https://beminimalist.co/cdn/shop/products/34-min_1296x.png?v=1681986119"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/MinimalistLIPBalmSPF30-min_1_2048x.png?v=1665726557",
+        "2": "https://beminimalist.co/cdn/shop/products/35-min_2048x.png?v=1681986119",
+        "3": "https://beminimalist.co/cdn/shop/products/34-min_1296x.png?v=1681986119"
+      }
     },
     {
       "id": 27,
@@ -341,10 +341,10 @@
       "desc": "An everyday Cleanse, Treat, Moisturize routine for oily / combination skin. Combination of actives carefully selected for removing & regulating excess sebum, repairing skin and providing oil-free moisturization.",
       "additionalDesc": "Fragrance free • Non-comedogenic",
       "price": 1079,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/OilControlKit-min_2048x.png?v=1681218073",
-        "https://beminimalist.co/cdn/shop/products/MinimalistOilySkincareKit1200-1Copy2-min_2048x.png?v=1681218073"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/OilControlKit-min_2048x.png?v=1681218073",
+        "2": "https://beminimalist.co/cdn/shop/products/MinimalistOilySkincareKit1200-1Copy2-min_2048x.png?v=1681218073"
+      }
     },
     {
       "id": 28,
@@ -353,10 +353,10 @@
       "desc": "A daily, gentle cleanser with multiple humectants to instantly hydrate and make skin soft & smooth. Formulated at optimum skin-identical pH of 5.5 for cleansing without drying skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 100ml",
       "price": 289,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/19-min_1296x.png?v=1679317834",
-        "https://beminimalist.co/cdn/shop/products/Aquaporin5Cleanser1200-3_2048x.png?v=1679317834"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/19-min_1296x.png?v=1679317834",
+        "2": "https://beminimalist.co/cdn/shop/products/Aquaporin5Cleanser1200-3_2048x.png?v=1679317834"
+      }
     },
     {
       "id": 29,
@@ -365,11 +365,11 @@
       "desc": "A very lightweight moisturiser that naturally seal in moisture and significantly reduces trans-epidermal water loss in cases wherein the skin barrier is disrupted. Non-sticky and non-comedogenic.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 695,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Squalane1200-2-min_2048x.png?v=1646506336",
-        "https://beminimalist.co/cdn/shop/products/squalane-1200--1min-1646506384396_2048x.webp?v=1651558210",
-        "https://beminimalist.co/cdn/shop/products/squalane-1200--3min-1646506384464_1296x.webp?v=1651558210"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Squalane1200-2-min_2048x.png?v=1646506336",
+        "2": "https://beminimalist.co/cdn/shop/products/squalane-1200--1min-1646506384396_2048x.webp?v=1651558210",
+        "3": "https://beminimalist.co/cdn/shop/products/squalane-1200--3min-1646506384464_1296x.webp?v=1651558210"
+      }
     },
     {
       "id": 30,
@@ -378,10 +378,10 @@
       "desc": "An everyday brightening cleanser to give your skin a boost of glow. While ALA brightens skin tone, Glycolic Acid exfoliates to reveal newer, younger skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 100ml",
       "price": 389,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Websiteimage11001600px-min_2_1296x.png?v=1679318047",
-        "https://beminimalist.co/cdn/shop/products/Minimalist-ALA-Glycolic-Cleanser-Texture-min_2048x.png?v=1679318047"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Websiteimage11001600px-min_2_1296x.png?v=1679318047",
+        "2": "https://beminimalist.co/cdn/shop/products/Minimalist-ALA-Glycolic-Cleanser-Texture-min_2048x.png?v=1679318047"
+      }
     },
     {
       "id": 31,
@@ -866,11 +866,11 @@
       "desc": "A lightweight sunscreen stick that leaves absolutely 0 white cast & no oily feel on application. It’s a photostable sunscreen that is formulated with very effective, new age UV filters to provide protection from UVA & UVB rays. Also contains potent antioxidants that protect & heal skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 20g",
       "price": 799,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Stickmailimage-min_2048x.png?v=1674808943",
-        "https://beminimalist.co/cdn/shop/products/Stickadimage-min_2048x.png?v=1682340542",
-        "https://beminimalist.co/cdn/shop/products/Stickmodelimage-min_1296x.png?v=1682340542"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Stickmailimage-min_2048x.png?v=1674808943",
+        "2": "https://beminimalist.co/cdn/shop/products/Stickadimage-min_2048x.png?v=1682340542",
+        "3": "https://beminimalist.co/cdn/shop/products/Stickmodelimage-min_1296x.png?v=1682340542"
+      }
     },
     {
       "id": 23,
@@ -879,11 +879,11 @@
       "desc": "A rejuvenating, collagen boosting serum boosted with peptides that restore youthfulness, resulting in younger, firmer-looking skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 695,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/MultipeptideSerum1200-2-min_1296x.png?v=1646591527",
-        "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--1min-1646580869125_2048x.webp?v=1651558375",
-        "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--3min-1646580869171_1296x.webp?v=1651558376"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/MultipeptideSerum1200-2-min_1296x.png?v=1646591527",
+        "2": "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--1min-1646580869125_2048x.webp?v=1651558375",
+        "3": "https://beminimalist.co/cdn/shop/products/multipeptide-serum-1200--3min-1646580869171_1296x.webp?v=1651558376"
+      }
     },
     {
       "id": 24,
@@ -892,11 +892,11 @@
       "desc": "A skin-regenerating daily serum with 10% blend of AHAs (Alpha Hydroxy Acids) and BHAs (Beta Hydroxy Acids) that mildly exfoliates without drying the skin to reveal clear, radiant, and hydrated skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 589,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--1min-1645781661616_1296x.png?v=1647004182",
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--2min-1646036604164_2048x.webp?v=1651495095",
-        "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--3min-1646036604229_1296x.webp?v=1651495095"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--1min-1645781661616_1296x.png?v=1647004182",
+        "2": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--2min-1646036604164_2048x.webp?v=1651495095",
+        "3": "https://beminimalist.co/cdn/shop/products/aha-bha-10-1200--3min-1646036604229_1296x.webp?v=1651495095"
+      }
     },
     {
       "id": 25,
@@ -905,11 +905,11 @@
       "desc": "A highly effective lip balm formulation with a combination of biologically active form of Vitamin C, L-Ascorbic Acid along with Radianskin that helps in preventing and reducing hyperpigmentation. Vitamin E and Glycerin hydrate and soften lips.",
       "additionalDesc": "Fragrance free • Parabens free • 12g",
       "price": 399,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Untitled_1_2048x.png?v=1666271810",
-        "https://beminimalist.co/cdn/shop/products/32-min_2048x.png?v=1681982472",
-        "https://beminimalist.co/cdn/shop/products/31-min_1296x.png?v=1681982472"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Untitled_1_2048x.png?v=1666271810",
+        "2": "https://beminimalist.co/cdn/shop/products/32-min_2048x.png?v=1681982472",
+        "3": "https://beminimalist.co/cdn/shop/products/31-min_1296x.png?v=1681982472"
+      }
     },
     {
       "id": 26,
@@ -918,11 +918,11 @@
       "desc": "An emollient balm formula with new-age, photostable UV filters to provide your lips all day protection from sun. Contains Ceramide & Hyaluronic Acid to hydrate and repair lips.",
       "additionalDesc": "Fragrance free • 8g",
       "price": 299,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/MinimalistLIPBalmSPF30-min_1_2048x.png?v=1665726557",
-        "https://beminimalist.co/cdn/shop/products/35-min_2048x.png?v=1681986119",
-        "https://beminimalist.co/cdn/shop/products/34-min_1296x.png?v=1681986119"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/MinimalistLIPBalmSPF30-min_1_2048x.png?v=1665726557",
+        "2": "https://beminimalist.co/cdn/shop/products/35-min_2048x.png?v=1681986119",
+        "3": "https://beminimalist.co/cdn/shop/products/34-min_1296x.png?v=1681986119"
+      }
     },
     {
       "id": 27,
@@ -931,10 +931,10 @@
       "desc": "An everyday Cleanse, Treat, Moisturize routine for oily / combination skin. Combination of actives carefully selected for removing & regulating excess sebum, repairing skin and providing oil-free moisturization.",
       "additionalDesc": "Fragrance free • Non-comedogenic",
       "price": 1079,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/OilControlKit-min_2048x.png?v=1681218073",
-        "https://beminimalist.co/cdn/shop/products/MinimalistOilySkincareKit1200-1Copy2-min_2048x.png?v=1681218073"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/OilControlKit-min_2048x.png?v=1681218073",
+        "2": "https://beminimalist.co/cdn/shop/products/MinimalistOilySkincareKit1200-1Copy2-min_2048x.png?v=1681218073"
+      }
     },
     {
       "id": 28,
@@ -943,10 +943,10 @@
       "desc": "A daily, gentle cleanser with multiple humectants to instantly hydrate and make skin soft & smooth. Formulated at optimum skin-identical pH of 5.5 for cleansing without drying skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 100ml",
       "price": 289,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/19-min_1296x.png?v=1679317834",
-        "https://beminimalist.co/cdn/shop/products/Aquaporin5Cleanser1200-3_2048x.png?v=1679317834"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/19-min_1296x.png?v=1679317834",
+        "2": "https://beminimalist.co/cdn/shop/products/Aquaporin5Cleanser1200-3_2048x.png?v=1679317834"
+      }
     },
     {
       "id": 29,
@@ -955,11 +955,11 @@
       "desc": "A very lightweight moisturiser that naturally seal in moisture and significantly reduces trans-epidermal water loss in cases wherein the skin barrier is disrupted. Non-sticky and non-comedogenic.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 30ml",
       "price": 695,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Squalane1200-2-min_2048x.png?v=1646506336",
-        "https://beminimalist.co/cdn/shop/products/squalane-1200--1min-1646506384396_2048x.webp?v=1651558210",
-        "https://beminimalist.co/cdn/shop/products/squalane-1200--3min-1646506384464_1296x.webp?v=1651558210"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Squalane1200-2-min_2048x.png?v=1646506336",
+        "2": "https://beminimalist.co/cdn/shop/products/squalane-1200--1min-1646506384396_2048x.webp?v=1651558210",
+        "3": "https://beminimalist.co/cdn/shop/products/squalane-1200--3min-1646506384464_1296x.webp?v=1651558210"
+      }
     },
     {
       "id": 30,
@@ -968,10 +968,10 @@
       "desc": "An everyday brightening cleanser to give your skin a boost of glow. While ALA brightens skin tone, Glycolic Acid exfoliates to reveal newer, younger skin.",
       "additionalDesc": "Fragrance free • Non-comedogenic • 100ml",
       "price": 389,
-      "images": [
-        "https://beminimalist.co/cdn/shop/products/Websiteimage11001600px-min_2_1296x.png?v=1679318047",
-        "https://beminimalist.co/cdn/shop/products/Minimalist-ALA-Glycolic-Cleanser-Texture-min_2048x.png?v=1679318047"
-      ]
+      "images": {
+        "1": "https://beminimalist.co/cdn/shop/products/Websiteimage11001600px-min_2_1296x.png?v=1679318047",
+        "2": "https://beminimalist.co/cdn/shop/products/Minimalist-ALA-Glycolic-Cleanser-Texture-min_2048x.png?v=1679318047"
+      }
     },
     {
       "id": 31,
