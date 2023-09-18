@@ -40,11 +40,6 @@ app.get("/products/bathnbody", productController.bathnbody);
 
 app.get("/products/:id", productController.getsingleproducts);
 
-
-app.get("/wishlist",authMiddleware, productController.getWishlist);
-app.post("/wishlist/add",authMiddleware ,productController.addToWishlist);
-app.post("/wishlist/remove",authMiddleware ,productController.removeFromWishlist);
-
 app.get("/cart",authMiddleware, productController.getCart);
 app.post("/cart/add",authMiddleware ,productController.addToCart);
 app.post("/cart/remove",authMiddleware ,productController.removeFromCart);

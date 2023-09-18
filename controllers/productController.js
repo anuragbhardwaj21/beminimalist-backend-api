@@ -24,25 +24,6 @@ exports.getsingleproducts = (req, res) => {
     }
     res.status(200).json(product);
   };
-exports.getWishlist = async (req, res) => {
-  try {
-    const userId = req.userData.userId;
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    const wishlistProductIds = user.wishlist;
-    const wishlistProducts = wishlistProductIds.map((productId) => {
-      return products.allproducts.find((product) => product.id === productId);
-    });
-
-    res.status(200).json({ wishlist: wishlistProducts });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
 
 exports.getCart = async (req, res) => {
   try {
@@ -64,35 +45,7 @@ exports.getCart = async (req, res) => {
   }
 };
 
-exports.addToWishlist = async (req, res) => {
-  try {
-    const { productIds } = req.body;
-    const userId = req.userData.userId;
 
-    await User.findByIdAndUpdate(userId, {
-      $addToSet: { wishlist: { $each: productIds } },
-    });
-
-    res.status(200).json({ message: "Products added to wishlist" });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-exports.removeFromWishlist = async (req, res) => {
-  try {
-    const { productIds } = req.body;
-    const userId = req.userData.userId;
-
-    await User.findByIdAndUpdate(userId, {
-      $pull: { wishlist: { $in: productIds } },
-    });
-
-    res.status(200).json({ message: "Products removed from wishlist" });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
 
 exports.addToCart = async (req, res) => {
   try {
