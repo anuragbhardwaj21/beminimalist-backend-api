@@ -1,14 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const authController = require('./controllers/authController');
-const productController = require('./controllers/productController')
-const addressController = require('./controllers/addressController')
-const personalDataController = require('./controllers/personalDataController')
-const authMiddleware = require('./utils/auth');
-dotenv.config();
-
+const dotenv = require("dotenv").config();
+const fs = require("fs");
+const Product = require("./models/Product");
+const authController = require("./controllers/authController");
+const productController = require("./controllers/productController");
+const addressController = require("./controllers/addressController");
+const personalDataController = require("./controllers/personalDataController");
+const authMiddleware = require("./utils/auth");
+const {
+  allproducts,
+  skin,
+  hair,
+  bathnbody,
+} = require("./controllers/productController");
 const app = express();
 const PORT = process.env.PORT || 3000;
 var corsOptions = {
@@ -19,10 +25,10 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(
-    `mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(`${process.env.MONGO_DB_URI}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -33,21 +39,21 @@ mongoose
 app.post("/signup", authController.signup);
 app.post("/login", authController.login);
 
-app.get("/products", productController.allproducts);
-app.get("/products/skin", productController.skin);
-app.get("/products/hair", productController.hair);
-app.get("/products/bathnbody", productController.bathnbody);
+app.get("/products", allproducts);
+app.get("/products/skin", skin);
+app.get("/products/hair", hair);
+app.get("/products/bathnbody", bathnbody);
 
-app.get("/products/:id", productController.getsingleproducts);
+// app.get("/products/:id", productController.getsingleproducts);
 
-app.get("/cart",authMiddleware, productController.getCart);
-app.post("/cart/add",authMiddleware ,productController.addToCart);
-app.post("/cart/remove",authMiddleware ,productController.removeFromCart);
+app.get("/cart", authMiddleware, productController.getCart);
+app.post("/cart/add", authMiddleware, productController.addToCart);
+app.post("/cart/remove", authMiddleware, productController.removeFromCart);
 
-app.post("/addaddress",authMiddleware ,addressController.addAddress);
-app.get("/getaddress",authMiddleware, addressController.getAddress);
+app.post("/addaddress", authMiddleware, addressController.addAddress);
+app.get("/getaddress", authMiddleware, addressController.getAddress);
 
-app.post("/adddetails",authMiddleware ,personalDataController.addDetails);
-app.get("/getdetails",authMiddleware, personalDataController.getDetails);
+app.post("/adddetails", authMiddleware, personalDataController.addDetails);
+app.get("/getdetails", authMiddleware, personalDataController.getDetails);
 
 app.listen(PORT);
