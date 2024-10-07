@@ -56,7 +56,7 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
-
+  
 app.post("/signup", signup);
 app.post("/login", login);
 
