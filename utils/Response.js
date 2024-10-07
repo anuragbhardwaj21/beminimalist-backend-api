@@ -1,9 +1,10 @@
 module.exports = {
-  success(res, data, code, message, extra) {
+  success(res, data, code, message, token, extra) {
     res.status(code).json({
       data: data,
       meta: {
         code: code,
+        token: token,
         message: message,
       },
       extra,

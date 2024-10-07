@@ -1,21 +1,30 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const morgan = require('morgan');
 const dotenv = require("dotenv").config();
-const fs = require("fs");
-const Product = require("./models/Product");
-const authController = require("./controllers/authController");
-const productController = require("./controllers/productController");
-const addressController = require("./controllers/addressController");
-const personalDataController = require("./controllers/personalDataController");
 const authMiddleware = require("./utils/auth");
+const { addAddress, getAddress } = require("./controllers/addressController");
+const { signup, login } = require("./controllers/authController");
+const {
+  addDetails,
+  getDetails,
+} = require("./controllers/personalDataController");
 const {
   allproducts,
   skin,
   hair,
   bathnbody,
+  getsingleproducts,
+  getCart,
+  addToCart,
+  removeFromCart,
 } = require("./controllers/productController");
+
+
 const app = express();
+
+app.use(morgan(':method :url :response-time ms'));
 const PORT = process.env.PORT || 3000;
 var corsOptions = {
   origin: "*",
@@ -36,24 +45,24 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
   });
 
-app.post("/signup", authController.signup);
-app.post("/login", authController.login);
+app.post("/signup", signup);
+app.post("/login", login);
 
 app.get("/products", allproducts);
 app.get("/products/skin", skin);
 app.get("/products/hair", hair);
 app.get("/products/bathnbody", bathnbody);
 
-// app.get("/products/:id", productController.getsingleproducts);
+app.get("/products/:id", getsingleproducts);
 
-app.get("/cart", authMiddleware, productController.getCart);
-app.post("/cart/add", authMiddleware, productController.addToCart);
-app.post("/cart/remove", authMiddleware, productController.removeFromCart);
+app.get("/cart", authMiddleware, getCart);
+app.post("/cart/add", authMiddleware, addToCart);
+app.post("/cart/remove", authMiddleware, removeFromCart);
 
-app.post("/addaddress", authMiddleware, addressController.addAddress);
-app.get("/getaddress", authMiddleware, addressController.getAddress);
+app.post("/addaddress", authMiddleware, addAddress);
+app.get("/getaddress", authMiddleware, getAddress);
 
-app.post("/adddetails", authMiddleware, personalDataController.addDetails);
-app.get("/getdetails", authMiddleware, personalDataController.getDetails);
+app.post("/adddetails", authMiddleware, addDetails);
+app.get("/getdetails", authMiddleware, getDetails);
 
 app.listen(PORT);

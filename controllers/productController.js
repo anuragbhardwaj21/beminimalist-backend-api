@@ -6,10 +6,28 @@ const Constants = require("../utils/Constants");
 module.exports = {
   allproducts: async (req, res) => {
     try {
-      const allProducts = await Product.find();
+      const { page = 1, perPage = Constants.PER_PAGE } = req.query;
+
+      const currentPage = parseInt(page, 10);
+      
+      const limit = parseInt(perPage, 10);
+      const skip = (currentPage - 1) * limit;
+
+      const totalProducts = await Product.countDocuments();
+
+      const allProducts = await Product.find().skip(skip).limit(limit);
+
+      const responseData = {
+        products: allProducts,
+        currentPage,
+        totalPages: Math.ceil(totalProducts / limit),
+        totalProducts,
+        perPage: limit,
+      };
+
       Response.success(
         res,
-        allProducts,
+        responseData,
         Constants.SUCCESS,
         "All Product Fetched Successfully"
       );
