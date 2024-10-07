@@ -33,8 +33,20 @@ var corsOptions = {
 app.use(cors());
 app.use(express.json());
 
+// mongoose
+//   .connect(`${process.env.MONGO_DB_URI}`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
+
 mongoose
-  .connect(`${process.env.MONGO_DB_URI}`, {
+  .connect("mongodb+srv://anurag2361am:anurag%4099@testing.rh5ek.mongodb.net/BeMinimalist?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
