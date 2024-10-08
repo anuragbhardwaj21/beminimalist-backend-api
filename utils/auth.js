@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const Constants = require("./Constants");
+const Response = require("./Response");
 
 module.exports = (req, res, next) => {
   try {
@@ -7,6 +9,10 @@ module.exports = (req, res, next) => {
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (error) {
-    res.status(401).json({ message: "Authentication failed please re-login." });
+    return Response.error(
+      res,
+      Constants.UNAUTHORIZED,
+      "Session expired. Please login again."
+    );
   }
 };

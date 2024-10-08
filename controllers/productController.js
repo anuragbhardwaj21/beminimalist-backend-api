@@ -1,24 +1,31 @@
-// const products = require("../db.json");
 const User = require("../models/User");
 const Product = require("../models/Product");
 const Response = require("../utils/Response");
 const Constants = require("../utils/Constants");
+
 module.exports = {
   allproducts: async (req, res) => {
     try {
       const { page = 1, perPage = Constants.PER_PAGE } = req.query;
 
       const currentPage = parseInt(page, 10);
-      
       const limit = parseInt(perPage, 10);
       const skip = (currentPage - 1) * limit;
 
       const totalProducts = await Product.countDocuments();
-
       const allProducts = await Product.find().skip(skip).limit(limit);
 
+      const generateRandomDigit = () => {
+        return Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+      };
+
+      const productsWithDeductedPrice = allProducts.map((product) => ({
+        ...product.toObject(),
+        deductedPrice: product.price - generateRandomDigit(),
+      }));
+
       const responseData = {
-        products: allProducts,
+        products: productsWithDeductedPrice,
         currentPage,
         totalPages: Math.ceil(totalProducts / limit),
         totalProducts,
@@ -32,56 +39,122 @@ module.exports = {
         "All Product Fetched Successfully"
       );
     } catch (error) {
-      Response.error(
-        res,
-        Constants.FAIL,
-        "Error fetching products"
-      );
+      Response.error(res, Constants.FAIL, "Error fetching products");
     }
   },
 
   skin: async (req, res) => {
     try {
-      const skinProducts = await Product.find({ type: "skin" });
+      const { page = 1, perPage = Constants.PER_PAGE } = req.query;
+      const currentPage = parseInt(page, 10);
+      const limit = parseInt(perPage, 10);
+      const skip = (currentPage - 1) * limit;
+
+      const totalProducts = await Product.countDocuments({ type: "skin" });
+      const skinProducts = await Product.find({ type: "skin" })
+        .skip(skip)
+        .limit(limit);
+
+      const generateRandomDigit = () => {
+        return Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+      };
+
+      const productsWithDeductedPrice = skinProducts.map((product) => ({
+        ...product.toObject(),
+        deductedPrice: product.price - generateRandomDigit(),
+      }));
+
+      const responseData = {
+        products: productsWithDeductedPrice,
+        currentPage,
+        totalPages: Math.ceil(totalProducts / limit),
+        totalProducts,
+        perPage: limit,
+      };
+
       Response.success(
         res,
-        skinProducts,
+        responseData,
         Constants.SUCCESS,
         "Skin Products Fetched Successfully"
       );
     } catch (error) {
-      Response.error(
-        res,
-        Constants.FAIL,
-        "Error fetching products"
-      );
+      Response.error(res, Constants.FAIL, "Error fetching skin products");
     }
   },
 
   hair: async (req, res) => {
     try {
-      const hairProducts = await Product.find({ type: "hair" });
+      const { page = 1, perPage = Constants.PER_PAGE } = req.query;
+      const currentPage = parseInt(page, 10);
+      const limit = parseInt(perPage, 10);
+      const skip = (currentPage - 1) * limit;
+
+      const totalProducts = await Product.countDocuments({ type: "hair" });
+      const hairProducts = await Product.find({ type: "hair" })
+        .skip(skip)
+        .limit(limit);
+
+      const generateRandomDigit = () => {
+        return Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+      };
+
+      const productsWithDeductedPrice = hairProducts.map((product) => ({
+        ...product.toObject(),
+        deductedPrice: product.price - generateRandomDigit(),
+      }));
+
+      const responseData = {
+        products: productsWithDeductedPrice,
+        currentPage,
+        totalPages: Math.ceil(totalProducts / limit),
+        totalProducts,
+        perPage: limit,
+      };
+
       Response.success(
         res,
-        hairProducts,
+        responseData,
         Constants.SUCCESS,
         "Hair Products Fetched Successfully"
       );
     } catch (error) {
-      Response.error(
-        res,
-        Constants.FAIL,
-        "Error fetching products"
-      );
+      Response.error(res, Constants.FAIL, "Error fetching hair products");
     }
   },
 
   bathnbody: async (req, res) => {
     try {
-      const bathnbodyProducts = await Product.find({ type: "bathnbody" });
+      const { page = 1, perPage = Constants.PER_PAGE } = req.query;
+      const currentPage = parseInt(page, 10);
+      const limit = parseInt(perPage, 10);
+      const skip = (currentPage - 1) * limit;
+
+      const totalProducts = await Product.countDocuments({ type: "bathnbody" });
+      const bathnbodyProducts = await Product.find({ type: "bathnbody" })
+        .skip(skip)
+        .limit(limit);
+
+      const generateRandomDigit = () => {
+        return Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+      };
+
+      const productsWithDeductedPrice = bathnbodyProducts.map((product) => ({
+        ...product.toObject(),
+        deductedPrice: product.price - generateRandomDigit(),
+      }));
+
+      const responseData = {
+        products: productsWithDeductedPrice,
+        currentPage,
+        totalPages: Math.ceil(totalProducts / limit),
+        totalProducts,
+        perPage: limit,
+      };
+
       Response.success(
         res,
-        bathnbodyProducts,
+        responseData,
         Constants.SUCCESS,
         "BathNBody Products Fetched Successfully"
       );
@@ -89,10 +162,11 @@ module.exports = {
       Response.error(
         res,
         Constants.FAIL,
-        "Error fetching products"
+        "Error fetching bath and body products"
       );
     }
   },
+
   getsingleproducts: (req, res) => {
     const productId = parseInt(req.params.id);
     const product = products.allproducts.find(
@@ -106,38 +180,66 @@ module.exports = {
 
   getCart: async (req, res) => {
     try {
-      const userId = req.userData.userId;
+      const { userId } = req.userData;
+  
       const user = await User.findById(userId);
-
+  
       if (!user) {
-        return res.status(404).json({ message: "User not found" });
+        return Response.error(res, Constants.FAIL, "User not found");
       }
-
-      const cartProductIds = user.cart;
-      const cartProducts = cartProductIds.map((productId) => {
-        return products.allproducts.find((product) => product.id === productId);
+  
+      const productIds = user.cart.map((item) => item.productId);
+      const cartProducts = await Product.find({ _id: { $in: productIds } });
+  
+      cartProducts = cartProducts.map((product) => {
+        const quantity = user.cart.find(
+          (item) => item.productId.toString() === product._id.toString()
+        )?.quantity || 1;
+  
+        return { ...product.toObject(), quantity };
       });
+  
 
-      res.status(200).json({ cart: cartProducts });
+      Response.success(
+        res,
+        cartProducts,
+        Constants.SUCCESS,
+        "Cart products retrieved successfully"
+      );
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      Response.error(res, Constants.FAIL, error.message);
     }
   },
 
   addToCart: async (req, res) => {
     try {
-      const { productIds } = req.body;
-      const userId = req.userData.userId;
+      const { userId } = req.userData;
+      const { productId, quantity } = req.body;
 
-      await User.findByIdAndUpdate(userId, {
-        $addToSet: { cart: { $each: productIds } },
-      });
-
-      res.status(200).json({ message: "Products added to cart" });
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return Response.error(res, Constants.FAIL, "User not found");
+      }
+  
+      const existingProduct = user.cart.find(
+        (item) => item.productId.toString() === productId
+      );
+  
+      if (existingProduct) {
+        existingProduct.quantity += quantity;
+      } else {
+        user.cart.push({ productId, quantity });
+      }
+  
+      await user.save();
+  
+      Response.success(res, {}, Constants.SUCCESS, "Product added to cart.");
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      Response.error(res, Constants.FAIL, error.message);
     }
   },
+  
 
   removeFromCart: async (req, res) => {
     try {

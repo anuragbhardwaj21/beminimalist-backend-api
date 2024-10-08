@@ -1,11 +1,17 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  wishlist: [{ type: Number, ref: "Product" }],
-  cart: [{ type: Number, ref: "Product" }],
+  wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
+  cart: [
+    {
+      productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+      quantity: { type: Number, default: 1 },
+    }
+  ],
   addline1: { type: String },
   addline2: { type: String },
   city: { type: String },
