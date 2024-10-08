@@ -1,22 +1,22 @@
 # BeMinimalist E-commerce API Endpoints 
 
-`Base URL` - https://beminimalist.onrender.com
+`Base URL` - https://beminimalist-bkoo.onrender.com
 ### Authentication
-> * `POST` - https://beminimalist.onrender.com/signup
-> * `POST` - https://beminimalist.onrender.com/login
+> * `POST` - https://beminimalist-bkoo.onrender.com/signup
+> * `POST` - https://beminimalist-bkoo.onrender.com/login
 ### Products
-> * `GET` - https://beminimalist.onrender.com/products
-> * `GET` - https://beminimalist.onrender.com/products/skin
-> * `GET` - https://beminimalist.onrender.com/products/hair
-> * `GET` - https://beminimalist.onrender.com/products/bathnbody
-> * `GET` - https://beminimalist.onrender.com/products/:id
+> * `GET` - https://beminimalist-bkoo.onrender.com/products
+> * `GET` - https://beminimalist-bkoo.onrender.com/products/skin
+> * `GET` - https://beminimalist-bkoo.onrender.com/products/hair
+> * `GET` - https://beminimalist-bkoo.onrender.com/products/bathnbody
+> * `GET` - https://beminimalist-bkoo.onrender.com/products/:id
 ### Shopping Cart
-> * `GET` - https://beminimalist.onrender.com/cart
-> * `POST` - https://beminimalist.onrender.com/cart/add
-> * `POST` - https://beminimalist.onrender.com/cart/remove
+> * `GET` - https://beminimalist-bkoo.onrender.com/cart
+> * `POST` - https://beminimalist-bkoo.onrender.com/cart/add
+> * `POST` - https://beminimalist-bkoo.onrender.com/cart/remove
 ### User Address
-> * `POST` - https://beminimalist.onrender.com/addaddress
-> * `GET` - https://beminimalist.onrender.com/getaddress
+> * `POST` - https://beminimalist-bkoo.onrender.com/addaddress
+> * `GET` - https://beminimalist-bkoo.onrender.com/getaddress
 ### Personal Data
-> * `POST` - https://beminimalist.onrender.com/adddetails
-> * `GET` - https://beminimalist.onrender.com/getdetails
+> * `POST` - https://beminimalist-bkoo.onrender.com/adddetails
+> * `GET` - https://beminimalist-bkoo.onrender.com/getdetails
