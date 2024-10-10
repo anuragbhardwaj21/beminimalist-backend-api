@@ -26,6 +26,7 @@ const app = express();
 
 app.use(morgan(":method :url :response-time ms"));
 const PORT = process.env.PORT || 3000;
+
 var corsOptions = {
   origin: "*",
 };
