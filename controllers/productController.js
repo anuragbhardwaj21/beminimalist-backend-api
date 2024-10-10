@@ -189,7 +189,7 @@ module.exports = {
       }
   
       const productIds = user.cart.map((item) => item.productId);
-      const cartProducts = await Product.find({ _id: { $in: productIds } });
+      let cartProducts = await Product.find({ _id: { $in: productIds } });
   
       cartProducts = cartProducts.map((product) => {
         const quantity = user.cart.find(

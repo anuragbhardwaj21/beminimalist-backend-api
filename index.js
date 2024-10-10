@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const morgan = require('morgan');
+const morgan = require("morgan");
 const dotenv = require("dotenv").config();
 const authMiddleware = require("./utils/auth");
 const { addAddress, getAddress } = require("./controllers/addressController");
@@ -20,11 +20,11 @@ const {
   addToCart,
   removeFromCart,
 } = require("./controllers/productController");
-
+const { postAvatar, getAvatar } = require("./controllers/avatarController");
 
 const app = express();
 
-app.use(morgan(':method :url :response-time ms'));
+app.use(morgan(":method :url :response-time ms"));
 const PORT = process.env.PORT || 3000;
 var corsOptions = {
   origin: "*",
@@ -41,11 +41,10 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB");
   })
-  .catch((error) => { 
+  .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
 
-  
 app.post("/signup", signup);
 app.post("/login", login);
 
@@ -65,5 +64,8 @@ app.get("/getaddress", authMiddleware, getAddress);
 
 app.post("/adddetails", authMiddleware, addDetails);
 app.get("/getdetails", authMiddleware, getDetails);
+
+app.post("/postavatar", authMiddleware, postAvatar);
+app.get("/getavatar", authMiddleware, getAvatar);
 
 app.listen(PORT);
