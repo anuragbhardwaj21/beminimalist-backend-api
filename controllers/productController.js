@@ -181,24 +181,24 @@ module.exports = {
   getCart: async (req, res) => {
     try {
       const { userId } = req.userData;
-  
+
       const user = await User.findById(userId);
-  
+
       if (!user) {
         return Response.error(res, Constants.FAIL, "User not found");
       }
-  
+
       const productIds = user.cart.map((item) => item.productId);
       let cartProducts = await Product.find({ _id: { $in: productIds } });
-  
+
       cartProducts = cartProducts.map((product) => {
-        const quantity = user.cart.find(
-          (item) => item.productId.toString() === product._id.toString()
-        )?.quantity || 1;
-  
+        const quantity =
+          user.cart.find(
+            (item) => item.productId.toString() === product._id.toString()
+          )?.quantity || 1;
+
         return { ...product.toObject(), quantity };
       });
-  
 
       Response.success(
         res,
@@ -217,29 +217,44 @@ module.exports = {
       const { productId, quantity } = req.body;
 
       const user = await User.findById(userId);
-  
+
       if (!user) {
         return Response.error(res, Constants.FAIL, "User not found");
       }
-  
+
       const existingProduct = user.cart.find(
         (item) => item.productId.toString() === productId
       );
-  
+
       if (existingProduct) {
-        existingProduct.quantity += quantity;
+        existingProduct.quantity = quantity;
       } else {
         user.cart.push({ productId, quantity });
       }
-  
       await user.save();
-  
-      Response.success(res, {}, Constants.SUCCESS, "Product added to cart.");
+
+      const productIds = user.cart.map((item) => item.productId);
+      let cartProducts = await Product.find({ _id: { $in: productIds } });
+
+      cartProducts = cartProducts.map((product) => {
+        const quantity =
+          user.cart.find(
+            (item) => item.productId.toString() === product._id.toString()
+          )?.quantity || 1;
+
+        return { ...product.toObject(), quantity };
+      });
+
+      Response.success(
+        res,
+        cartProducts,
+        Constants.SUCCESS,
+        "Product added to cart."
+      );
     } catch (error) {
       Response.error(res, Constants.FAIL, error.message);
     }
   },
-  
 
   removeFromCart: async (req, res) => {
     try {
