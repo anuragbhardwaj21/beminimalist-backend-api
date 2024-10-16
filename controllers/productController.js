@@ -261,13 +261,22 @@ module.exports = {
       const { productIds } = req.body;
       const userId = req.userData.userId;
 
-      await User.findByIdAndUpdate(userId, {
-        $pull: { cart: { $in: productIds } },
-      });
+      await User.findByIdAndUpdate(
+        userId,
+        {
+          $pull: { cart: { productId: { $in: productIds } } },
+        },
+        { new: true }
+      );
 
-      res.status(200).json({ message: "Products removed from cart" });
+      Response.success(
+        res,
+        {},
+        Constants.SUCCESS,
+        "Product removed from cart."
+      );
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      Response.error(res, Constants.FAIL, error.message);
     }
   },
 };
