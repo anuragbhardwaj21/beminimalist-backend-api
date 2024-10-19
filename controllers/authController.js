@@ -3,7 +3,9 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Response = require("../utils/Response");
 const Constants = require("../utils/Constants");
+
 module.exports = {
+
   signup: async (req, res) => {
     try {
       const { name, email, password } = req.body;
@@ -15,20 +17,23 @@ module.exports = {
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = new User({ name, email, password: hashedPassword });
       await newUser.save();
-      const token = jwt.sign({ userId: newUser._id }, "anurag", {
-        expiresIn: "1h",
-      });
-      res.status(201).json({
-        message: "User created successfully",
+
+      data = {
         username: newUser.name,
         userid: newUser._id,
-        token,
-      });
+      };
+      Response.success(
+        res,
+        data,
+        Constants.SUCCESS,
+        "User created successfully.",
+        token
+      );
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return Response.error(res, Constants.FAIL, error.message);
     }
   },
-  
+
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -54,7 +59,11 @@ module.exports = {
       const token = jwt.sign({ userId: user._id }, "anurag", {
         expiresIn: "1h",
       });
-      const data = { username: user.email, name: user.name};
+
+      user.token = token;
+      await user.save();
+
+      const data = { username: user.email, name: user.name };
 
       Response.success(
         res,
@@ -64,7 +73,28 @@ module.exports = {
         token
       );
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      return Response.error(res, Constants.FAIL, error.message);
     }
   },
+
+  logout: async (req, res) => {
+    try {
+      const { userId } = req.userData;
+
+      const user = await User.findById(userId);
+
+
+      if (!user) {
+        return Response.error(res, Constants.FAIL, "User not found.");
+      }
+
+      user.token = null;
+      await user.save();
+
+      Response.success(res, {}, Constants.SUCCESS, "Logged out successfully.");
+    } catch (error) {
+      return Response.error(res, Constants.FAIL, error.message);
+    }
+  },
+
 };

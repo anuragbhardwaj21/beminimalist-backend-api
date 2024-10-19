@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv").config();
 const authMiddleware = require("./utils/auth");
-const { addAddress, getAddress } = require("./controllers/addressController");
-const { signup, login } = require("./controllers/authController");
+const { postAddress, getAddress } = require("./controllers/addressController");
+const { signup, login, logout } = require("./controllers/authController");
 const {
   addDetails,
   getDetails,
@@ -49,6 +49,7 @@ mongoose
 
 app.post("/signup", signup);
 app.post("/login", login);
+app.post("/logout", authMiddleware, logout);
 
 app.get("/products", allproducts);
 app.get("/products/skin", skin);
@@ -61,7 +62,7 @@ app.get("/cart", authMiddleware, getCart);
 app.post("/cart/add", authMiddleware, addToCart);
 app.post("/cart/remove", authMiddleware, removeFromCart);
 
-app.post("/addaddress", authMiddleware, addAddress);
+app.post("/postaddress", authMiddleware, postAddress);
 app.get("/getaddress", authMiddleware, getAddress);
 
 app.post("/adddetails", authMiddleware, addDetails);

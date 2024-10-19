@@ -12,18 +12,14 @@ const userSchema = new mongoose.Schema(
         quantity: { type: Number, default: 1 },
       },
     ],
+    token: { type: String, default: null },
     orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
     avatar: { type: mongoose.Schema.Types.ObjectId, ref: "Avatar" },
-    addline1: { type: String },
-    addline2: { type: String },
-    city: { type: String },
-    pinCode: { type: String },
-    state: { type: String },
     dob: { type: Date },
     gender: { type: String, enum: ["Male", "Female", "Other"] },
-    phoneNumber: { type: String },
+    addresses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Address" }],
   },
   { timestamps: true }
-); 
+);
 
 module.exports = mongoose.model("User", userSchema);

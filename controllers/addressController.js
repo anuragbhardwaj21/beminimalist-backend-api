@@ -1,43 +1,54 @@
 const User = require("../models/User");
-module.exports = {
-  addAddress: async (req, res) => {
-    try {
-      const { addline1, addline2, city, pinCode, state } = req.body;
-      const userId = req.userData.userId;
+const Address = require("../models/Address");
+const Constants = require("../utils/Constants");
+const Response = require("../utils/Response");
 
-      await User.findByIdAndUpdate(userId, {
+module.exports = {
+  getAddress: async (req, res) => {
+    try {
+      const { userId } = req.userData;
+      const addresses = await Address.find({ userId });
+      return Response.success(
+        res,
+        addresses,
+        Constants.SUCCESS,
+        "Address Fetched Successfully."
+      );
+    } catch (error) {
+      return Response.error(res, Constants.FAIL, error.message);
+    }
+  },
+
+  postAddress: async (req, res) => {
+    try {
+      const { userId } = req.userData;
+      
+      const { title, addline1, addline2, city, pinCode, state, phoneNumber } =
+        req.body.address;
+
+      const newAddress = new Address({
+        userId,
+        title,
         addline1,
         addline2,
         city,
         pinCode,
         state,
+        phoneNumber,
       });
 
-      res.status(200).json({ message: "Address added successfully" });
+      await newAddress.save();
+
+      const addresses = await Address.find({ userId });
+
+      return Response.success(
+        res,
+        addresses,
+        Constants.SUCCESS,
+        "Address Saved Successfully."
+      );
     } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  },
-  getAddress: async (req, res) => {
-    try {
-      const userId = req.userData.userId;
-      const user = await User.findById(userId);
-
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-
-      const address = {
-        addline1: user.addline1,
-        addline2: user.addline2,
-        city: user.city,
-        pinCode: user.pinCode,
-        state: user.state,
-      };
-
-      res.status(200).json({ address });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+      return Response.error(res, Constants.FAIL, error.message);
     }
   },
 };
